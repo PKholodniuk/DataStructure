@@ -67,7 +67,6 @@ namespace DataStructureLib
                 Node current = new Node(data, First);
 
                 Last.Previous = current;
-                First.Previous = current;
 
                 First = current;
             }
