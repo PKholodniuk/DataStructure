@@ -4,7 +4,7 @@
     {
         public class Node
         {
-            public object Data { get; set; }
+            public object Data { get; }
             public Node? Next { get; set; }
 
             public Node(object data)
@@ -18,9 +18,9 @@
             }
         }
 
-        public int Count { get; set; } = 0;
-        public Node? First { get; set; }
-        public Node? Last { get; set; }
+        public int Count { get; private set; } = 0;
+        public Node? First { get; private set; }
+        public Node? Last { get; private set; }
 
         public void Add(object data)
         {
@@ -61,40 +61,29 @@
             Count++;
         }
 
-        public void Insert(int index, object data)
+        public void Insert(int index, object? data)
         {
-            if (index >= 0 && index <= Count)
+            if (index < 0 || index >= Count) throw new IndexOutOfRangeException();
+
+            if (index == 0)
             {
-                if (index == 0)
+                AddFirst(data);
+            }
+            else
+            {
+                Node? current = First;
+                Node? previos = null;
+                for (int i = 0; i < index && current != null; i++, current = current.Next)
                 {
-                    AddFirst(data);
+                    previos = current;
                 }
-                else
+
+                if (previos != null)
                 {
-                    Node? current = First;
-                    Node? inserted = new Node(data);
+                    var newNode = new Node(data, current);
+                    previos.Next = newNode;
 
-                    for (int i = 0; i <= Count; i++)
-                    {
-                        if (index - i == 1)
-                        {
-                            inserted = new Node(data, current?.Next);
-                            current.Next = inserted;
-
-                            Count++;
-                            break;
-                        }
-                        if (i == Count)
-                        {
-                            Last = inserted;
-
-                            current.Next = Last;
-
-                            Count++;
-                            break;
-                        }
-                        current = current?.Next;
-                    }
+                    Count++;
                 }
             }
         }

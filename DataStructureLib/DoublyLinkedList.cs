@@ -6,7 +6,7 @@ namespace DataStructureLib
     {
         public class Node
         {
-            public object Data { get; set; }
+            public object Data { get; }
             public Node? Previous { get; set; }
             public Node? Next { get; set; }
 
@@ -26,9 +26,9 @@ namespace DataStructureLib
             }
         }
 
-        public int Count { get; set; } = 0;
-        public Node? First { get; set; }
-        public Node? Last { get; set; }
+        public int Count { get; private set; } = 0;
+        public Node? First { get; private set; }
+        public Node? Last { get; private set; }
 
         public void Add(object data)
         {
@@ -67,6 +67,7 @@ namespace DataStructureLib
                 Node current = new Node(data, First);
 
                 Last.Previous = current;
+                First.Previous = current;
 
                 First = current;
             }

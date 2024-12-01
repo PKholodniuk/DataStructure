@@ -4,7 +4,7 @@
     {
         DoublyLinkedList list = new DoublyLinkedList();
 
-        public int Count { get; set; } = 0;
+        public int Count { get; private set; } = 0;
 
         public void Push(object data)
         {

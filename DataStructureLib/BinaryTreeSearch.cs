@@ -4,7 +4,7 @@
     {
         public class Node
         {
-            public int Value { get; set; }
+            public int Value { get; }
             public Node? Left { get; set; }
             public Node? Right { get; set; }
 
@@ -20,8 +20,8 @@
             }
         }
 
-        public int Count { get; set; }
-        public Node? Root { get; set; }
+        public int Count { get; private set; }
+        public Node? Root { get; private set; }
 
         public void Add(int value)
         {

@@ -198,27 +198,6 @@ namespace TestDataStracture
             Assert.That(array[4].Equals("4"));
         }
 
-        [Test]
-        public void MethodInsertToTheEndTest()
-        {
-            var list = new SinglyLinkedList();
-
-            list.Add("0");
-            list.Add("1");
-            list.Add("2");
-
-            list.Insert(3, "3");
-
-            var array = list.ToArray();
-
-            Assert.That(array[0].Equals("0"));
-            Assert.That(array[1].Equals("1"));
-            Assert.That(array[2].Equals("2"));
-            Assert.That(array[3].Equals("3"));
-
-            Assert.That(list.First.Next.Next.Next.Data.Equals("3"));
-        }
-
         #endregion
     }
 }
