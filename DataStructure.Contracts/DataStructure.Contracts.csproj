@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DataStructure.Contracts\DataStructure.Contracts.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,6 +1,8 @@
-﻿namespace DataStructureLib
+﻿using DataStructure.Contracts;
+
+namespace DataStructureLib
 {
-    public class SpecialStak
+    public class SpecialStak : ISpecialDataStructure
     {
         DoublyLinkedList list = new DoublyLinkedList();
 
