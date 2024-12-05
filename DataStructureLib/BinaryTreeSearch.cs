@@ -1,6 +1,8 @@
-﻿namespace DataStructureLib
+﻿using DataStructure.Contracts;
+
+namespace DataStructureLib
 {
-    public class BinaryTreeSearch
+    public class BinaryTreeSearch : IBinaryTreeSearch
     {
         public class Node
         {

@@ -1,6 +1,8 @@
-﻿namespace DataStructureLib
+﻿using DataStructure.Contracts;
+
+namespace DataStructureLib
 {
-    public class SpecialQueue 
+    public class SpecialQueue : ISpecialDataStructure
     {
         DoublyLinkedList list = new DoublyLinkedList();
 

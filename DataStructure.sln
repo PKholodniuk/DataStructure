@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructureLib", "DataStr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartUp", "StartUp\StartUp.csproj", "{717B218B-041E-42B9-BD33-2541B1CCADC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataStracture", "TestDataStracture\TestDataStracture.csproj", "{A51EC144-8BE5-4A9B-939A-E864202803D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDataStracture", "TestDataStracture\TestDataStracture.csproj", "{A51EC144-8BE5-4A9B-939A-E864202803D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure.Contracts", "DataStructure.Contracts\DataStructure.Contracts.csproj", "{C496F0DF-31E0-4690-B513-CEC99C6FE0C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A51EC144-8BE5-4A9B-939A-E864202803D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A51EC144-8BE5-4A9B-939A-E864202803D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A51EC144-8BE5-4A9B-939A-E864202803D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C496F0DF-31E0-4690-B513-CEC99C6FE0C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C496F0DF-31E0-4690-B513-CEC99C6FE0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C496F0DF-31E0-4690-B513-CEC99C6FE0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C496F0DF-31E0-4690-B513-CEC99C6FE0C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

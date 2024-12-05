@@ -1,6 +1,8 @@
-﻿namespace DataStructureLib
+﻿using DataStructure.Contracts;
+
+namespace DataStructureLib
 {
-    public class SpecialList
+    public class SpecialList : IMyList
     {
         private object[] innerArray = new object[5];
 

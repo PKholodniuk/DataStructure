@@ -1,8 +1,9 @@
-﻿using System;
+﻿using DataStructure.Contracts;
+using System;
 
 namespace DataStructureLib
 {
-    public class DoublyLinkedList
+    public class DoublyLinkedList : IMyList
     {
         public class Node
         {

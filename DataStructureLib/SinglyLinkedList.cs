@@ -1,6 +1,8 @@
-﻿namespace DataStructureLib
+﻿using DataStructure.Contracts;
+
+namespace DataStructureLib
 {
-    public class SinglyLinkedList
+    public class SinglyLinkedList : IMyList
     {
         public class Node
         {
