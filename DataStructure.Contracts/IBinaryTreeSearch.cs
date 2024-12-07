@@ -1,9 +1,9 @@
 ﻿namespace DataStructure.Contracts
 {
-    public interface IBinaryTreeSearch : IMyCollection
+    public interface IBinaryTreeSearch<T> : IMyCollection  where T : IComparable<T>
     {
-        void Add(int value);
-        bool Contains(int value);
-        int[] ToArray();
+        void Add(T value);
+        bool Contains(T value);
+        T[] ToArray();
     }
 }

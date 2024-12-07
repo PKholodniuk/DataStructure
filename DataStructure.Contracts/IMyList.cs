@@ -1,10 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 namespace DataStructure.Contracts
 {
-    public interface IMyList : IMyCollection
+    public interface IMyList<T> : IMyCollection
     {
-        void Add(object value);
-        bool Contains(object value);
-        object[] ToArray();
+        void Add(T value);
+        bool Contains(T value);
+        T[] ToArray();
     }
 }
