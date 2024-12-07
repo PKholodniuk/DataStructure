@@ -1,8 +1,8 @@
 ﻿namespace DataStructure.Contracts
 {
-    public interface ISpecialDataStructure : IMyCollection
+    public interface ISpecialDataStructure<T> : IMyCollection
     {
-        bool Contains(object value);
-        object[] ToArray();
+        bool Contains(T value);
+        T[] ToArray();
     }
 }

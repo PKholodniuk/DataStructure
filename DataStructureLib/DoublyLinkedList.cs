@@ -3,25 +3,25 @@ using System;
 
 namespace DataStructureLib
 {
-    public class DoublyLinkedList : IMyList
+    public class DoublyLinkedList<T> : IMyList<T>
     {
         public class Node
         {
-            public object Data { get; }
+            public T Data { get; }
             public Node? Previous { get; set; }
             public Node? Next { get; set; }
 
-            public Node(object data)
+            public Node(T data)
             {
                 Data = data;
             }
 
-            public Node(object data, Node next) : this(data)
+            public Node(T data, Node next) : this(data)
             {
                 Next = next;
             }
 
-            public Node(object data, Node next, Node previous) : this(data, next)
+            public Node(T data, Node next, Node previous) : this(data, next)
             {
                 Previous = previous;
             }
@@ -31,7 +31,7 @@ namespace DataStructureLib
         public Node? First { get; private set; }
         public Node? Last { get; private set; }
 
-        public void Add(object data)
+        public void Add(T data)
         {
             if (Count == 0)
             {
@@ -56,7 +56,7 @@ namespace DataStructureLib
             Count++;
         }
 
-        public void AddFirst(object data)
+        public void AddFirst(T data)
         {
             if (Count == 0)
             {
@@ -82,7 +82,7 @@ namespace DataStructureLib
             Count++;
         }
 
-        public void Insert(int index, object data)
+        public void Insert(int index, T data)
         {
             if (index >= 0 && index <= Count)
             {
@@ -115,18 +115,18 @@ namespace DataStructureLib
             }
         }
 
-        public void Remove(object data)
+        public void Remove(T data)
         {
             Node current = First;
 
             for (int i = 0; i < Count; i++)
             {
-                if (i == 0 && current.Data == data)
+                if (i == 0 && current.Data.Equals(data))
                 {
                     RemoveFirst();
                     break;
                 }
-                if (current.Data == data)
+                if (current.Data.Equals(data))
                 {
                     if (current.Next != null)
                     {
@@ -201,27 +201,27 @@ namespace DataStructureLib
             Count = 0;
         }
 
-        public bool Contains(object data)
+        public bool Contains(T data)
         {
             if (Count >= 1)
             {
-                Node? current = First;
+                Node current = First;
 
                 for (int i = 0; i < Count; i++)
                 {
-                    if (current?.Data == data)
+                    if (current.Data.Equals(data))
                         return true;
 
-                    current = current?.Next;
+                    current = current.Next;
                 }
             }
 
             return false;
         }
 
-        public object[] ToArray()
+        public T[] ToArray()
         {
-            var array = new object[Count];
+            var array = new T[Count];
 
             Node? current = First;
 

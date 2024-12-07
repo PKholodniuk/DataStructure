@@ -2,32 +2,32 @@
 
 namespace DataStructureLib
 {
-    public class SpecialStak : ISpecialDataStructure
+    public class SpecialStak<T> : ISpecialDataStructure<T>
     {
-        DoublyLinkedList list = new DoublyLinkedList();
+        DoublyLinkedList<T> list = new DoublyLinkedList<T>();
 
         public int Count { get; private set; } = 0;
 
-        public void Push(object data)
+        public void Push(T data)
         {
             list.AddFirst(data);
             Count++;
         }
 
-        public object Pop()
+        public T Pop()
         {
             if (list.Count == 0)
             {
-                return null;
+                throw new InvalidOperationException("Stack is empty");
             }
 
-            object data = list.First.Data;
+            T data = list.First.Data;
             list.RemoveFirst();
             Count--;
             return data;
         }
 
-        public bool Contains(object data)
+        public bool Contains(T data)
         {
             return list.Contains(data);
         }
@@ -38,17 +38,17 @@ namespace DataStructureLib
             Count = 0;
         }
 
-        public object Peek()
+        public T Peek()
         {
             if (Count == 0)
             {
-                return list.First;
+                throw new InvalidOperationException("Stack is empty");
             }
 
             return list.First.Data;
         }
 
-        public object[] ToArray()
+        public T[] ToArray()
         {
             return list.ToArray();
         }

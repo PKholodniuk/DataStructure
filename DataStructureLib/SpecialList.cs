@@ -1,10 +1,11 @@
-﻿using DataStructure.Contracts;
+﻿using System.Collections.Generic;
+using DataStructure.Contracts;
 
 namespace DataStructureLib
 {
-    public class SpecialList : IMyList
+    public class SpecialList<T> : IMyList<T>
     {
-        private object[] innerArray = new object[5];
+        private T[] innerArray = new T[5];
 
         private int count = 0;
 
@@ -20,7 +21,7 @@ namespace DataStructureLib
         {
             if (count == innerArray.Length)
             {
-                var newArray = new object[innerArray.Length * 2];
+                var newArray = new T[innerArray.Length * 2];
                 innerArray.CopyTo(newArray, 0);
                 innerArray = newArray;
             }
@@ -30,13 +31,13 @@ namespace DataStructureLib
         {
             if (count * 4 < innerArray.Length )
             {
-                var newArray = new object[innerArray.Length / 2];
+                var newArray = new T[innerArray.Length / 2];
                 innerArray.CopyTo(newArray, 0);
                 innerArray = newArray;
             }
         }
 
-        public void Add(object value)
+        public void Add(T value)
         {
             ExtendInnerArray();
 
@@ -44,7 +45,7 @@ namespace DataStructureLib
             count++;
         }
 
-        public void Insert(int index, object value)
+        public void Insert(int index, T value)
         {
             if (index >= 0 && index < count)
             {
@@ -61,7 +62,7 @@ namespace DataStructureLib
             }
         }
 
-        public void Remove(object value) 
+        public void Remove(T value) 
         {
             RemoveAt(IndexOf(value));
         }
@@ -83,11 +84,11 @@ namespace DataStructureLib
 
         public void Clear()
         {
-            innerArray = new object[innerArray.Length];
+            innerArray = new T[innerArray.Length];
             count = 0;
         }
 
-        public bool Contains(object value) 
+        public bool Contains(T value) 
         {
             for (int i = 0; i < count; i++)
             {
@@ -100,7 +101,7 @@ namespace DataStructureLib
             return false; 
         }
 
-        public int IndexOf(object value)
+        public int IndexOf(T value)
         {
             for (int i = 0; i < count; i++)
             {
@@ -113,9 +114,9 @@ namespace DataStructureLib
             return -1;
         }
 
-        public object[] ToArray()
+        public T[] ToArray()
         {
-            var newArray = new object[count];
+            var newArray = new T[count];
 
             for (int i = 0; i < newArray.Length; i++)
             {
@@ -131,13 +132,13 @@ namespace DataStructureLib
         {
             for (int i = 0; i < count/2; i++ )
             {
-                object temp = innerArray[i];
+                T temp = innerArray[i];
                 innerArray[i] = innerArray[count - 1 - i];
                 innerArray[count - 1 - i] = temp;
             }
         }
 
-        public object this[int index]
+        public T this[int index]
         {
             get
             {
