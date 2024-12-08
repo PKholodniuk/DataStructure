@@ -9,7 +9,7 @@ namespace TestDataStracture
         [Test]
         public void NewStackIsEmptyTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<object>();
 
             Assert.That(stack.Count.Equals(0));
         }
@@ -19,7 +19,7 @@ namespace TestDataStracture
         [Test]
         public void PushOneObjectTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<string>();
 
             stack.Push("1");
 
@@ -30,7 +30,7 @@ namespace TestDataStracture
         [Test]
         public void StackDifferentTypeTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<object>();
 
             stack.Push("1");
             stack.Push("q");
@@ -50,7 +50,7 @@ namespace TestDataStracture
         [Test]
         public void PopTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<object>();
 
             stack.Push("1");
             stack.Push(1);
@@ -66,7 +66,7 @@ namespace TestDataStracture
 
             Assert.That(stack.Count.Equals(0));
 
-            Assert.IsNull(stack.Pop());
+            Assert.Throws<InvalidOperationException>(() => stack.Pop(), "Stack is empty");
         }
 
         #endregion
@@ -77,7 +77,7 @@ namespace TestDataStracture
         [Test]
         public void PeekWhenOneObjectTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<int>();
 
             stack.Push(1);
             stack.Peek();
@@ -88,7 +88,7 @@ namespace TestDataStracture
         [Test]
         public void PeekWhenSeveralObjectsTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<int>();
 
             stack.Push(1);
             stack.Push(2);
@@ -101,7 +101,7 @@ namespace TestDataStracture
         [Test]
         public void PeekAfterPopTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<object>();
 
             stack.Push(1);
             stack.Push("2");
@@ -116,13 +116,12 @@ namespace TestDataStracture
         [Test]
         public void PeekEmptyStackTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<int>();
 
             stack.Push(1);
             stack.Pop();
-            stack.Peek();
 
-            Assert.IsNull(stack.Peek());
+            Assert.Throws<InvalidOperationException>(() => stack.Peek(), "Stack is empty");
         }
 
         #endregion
@@ -132,7 +131,7 @@ namespace TestDataStracture
         [Test]
         public void MethodContainsTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<string>();
 
             stack.Push("1");
             stack.Push("2");
@@ -151,7 +150,7 @@ namespace TestDataStracture
         [Test]
         public void MethodToArrayTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<string>();
 
             stack.Push("1");
             stack.Push("2");
@@ -174,7 +173,7 @@ namespace TestDataStracture
         [Test]
         public void MethodClearTest()
         {
-            var stack = new SpecialStak();
+            var stack = new SpecialStak<string>();
 
             stack.Push("1");
             stack.Push("2");

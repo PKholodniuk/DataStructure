@@ -9,7 +9,7 @@ namespace TestDataStracture
         [Test]
         public void NewListIsEmptyTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<object>();
 
             Assert.That(list.Count.Equals(0));
             Assert.IsNull(list.Last);
@@ -21,7 +21,7 @@ namespace TestDataStracture
         [Test]
         public void MethodAddOneNodeTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("1");
 
@@ -33,15 +33,15 @@ namespace TestDataStracture
         [Test]
         public void MethodAddLastNodeTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<int>();
 
-            list.Add("1");
-            list.Add("3");
-            list.Add("2");
+            list.Add(1);
+            list.Add(3);
+            list.Add(2);
 
             Assert.That(list.Count.Equals(3));
-            Assert.That(list.First.Data.Equals("1"));
-            Assert.That(list.Last.Data.Equals("2"));
+            Assert.That(list.First.Data.Equals(1));
+            Assert.That(list.Last.Data.Equals(2));
             Assert.IsNotNull(list.First);
             Assert.IsNotNull(list.Last);
 
@@ -50,7 +50,7 @@ namespace TestDataStracture
         [Test]
         public void MethodAddFisrtTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.AddFirst("1");
 
@@ -62,7 +62,7 @@ namespace TestDataStracture
         [Test]
         public void MethodAddFisrt_WithSeveralNodesTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("2");
             list.AddFirst("1");
@@ -82,7 +82,7 @@ namespace TestDataStracture
         [Test]
         public void MethodClearTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("1");
             list.AddFirst("2");
@@ -103,7 +103,7 @@ namespace TestDataStracture
         [Test]
         public void MethodContainsTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("1");
             list.AddFirst("2");
@@ -125,7 +125,7 @@ namespace TestDataStracture
         [Test]
         public void MethodToArrayTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("1");
             list.AddFirst("2");
@@ -146,21 +146,21 @@ namespace TestDataStracture
         [Test]
         public void MethodRemoveFirstWhenOneNodeTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<int>();
 
-            list.AddFirst("2");
+            list.AddFirst(2);
 
             list.RemoveFirst();
 
             Assert.That(list.Count == 0);
-            Assert.That(!list.Contains("2"));
+            Assert.That(!list.Contains(2));
 
         }
 
         [Test]
         public void MethodRemoveFirst_WhenTwoNodesTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("2");
             list.Add("4");
@@ -176,7 +176,7 @@ namespace TestDataStracture
         [Test]
         public void MethodRemoveFirst_WhenSeveralNodesTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("0");
             list.Add("1");
@@ -197,9 +197,9 @@ namespace TestDataStracture
         [Test]
         public void MethodRemoveLast_WhenOneNodeTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<decimal>();
 
-            list.AddFirst("2");
+            list.AddFirst(2.1m);
 
             list.RemoveLast();
 
@@ -211,7 +211,7 @@ namespace TestDataStracture
         [Test]
         public void MethodRemoveLast_WhenTwoNodesTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("2");
             list.Add("4");
@@ -228,7 +228,7 @@ namespace TestDataStracture
         [Test]
         public void MethodRemoveLast_WhenSeveralNodesTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("0");
             list.Add("1");
@@ -252,7 +252,7 @@ namespace TestDataStracture
         [Test]
         public void MethodRemove_WhenOneNodeTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.AddFirst("2");
 
@@ -268,7 +268,7 @@ namespace TestDataStracture
         [Test]
         public void MethodRemove_WhenTwoNodeTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("2");
             list.Add("4");
@@ -284,7 +284,7 @@ namespace TestDataStracture
         [Test]
         public void MethodRemove_WhenSeveralNodesTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("0");
             list.Add("1");
@@ -302,7 +302,7 @@ namespace TestDataStracture
         [Test]
         public void MethodRemove_FromTheEndTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("0");
             list.Add("1");
@@ -325,7 +325,7 @@ namespace TestDataStracture
         [Test]
         public void MethodInsertToTheFirstTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("3");
             list.AddFirst("2");
@@ -346,7 +346,7 @@ namespace TestDataStracture
         [Test]
         public void MethodInsertToLastPlaceTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("2");
             list.AddFirst("1");
@@ -369,7 +369,7 @@ namespace TestDataStracture
         [Test]
         public void MethodInsertToTheEndTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("2");
             list.AddFirst("1");
@@ -392,7 +392,7 @@ namespace TestDataStracture
         [Test]
         public void MethodInsert_InTheMiddleTest()
         {
-            var list = new DoublyLinkedList();
+            var list = new DoublyLinkedList<string>();
 
             list.Add("0");
             list.Add("1");

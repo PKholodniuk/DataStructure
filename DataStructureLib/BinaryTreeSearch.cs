@@ -2,20 +2,20 @@
 
 namespace DataStructureLib
 {
-    public class BinaryTreeSearch : IBinaryTreeSearch
+    public class BinaryTreeSearch<T> : IBinaryTreeSearch<T>  where T : IComparable<T>
     {
         public class Node
         {
-            public int Value { get; }
+            public T Value { get; }
             public Node? Left { get; set; }
             public Node? Right { get; set; }
 
-            public Node(int value)
+            public Node(T value)
             {
                 Value = value;
             }
 
-            public Node(int value, Node? left, Node right) : this(value)
+            public Node(T value, Node? left, Node right) : this(value)
             {
                 Left = left;
                 Right = right;
@@ -25,12 +25,12 @@ namespace DataStructureLib
         public int Count { get; private set; }
         public Node? Root { get; private set; }
 
-        public void Add(int value)
+        public void Add(T value)
         {
             Root = AddNode(value, Root);
         }
 
-        private Node AddNode(int value, Node? root)
+        private Node AddNode(T value, Node? root)
         {
             if (root == null)
             {
@@ -40,7 +40,7 @@ namespace DataStructureLib
             }
             else
             {
-                if (value < root.Value)
+                if (value.CompareTo(root.Value) < 0)
                 {
                     root.Left = AddNode(value, root.Left);
                     return root;
@@ -59,24 +59,24 @@ namespace DataStructureLib
             Count = 0;
         }
 
-        public bool Contains(int value)
+        public bool Contains(T value)
         {
             return Contains(value, Root);
         }
 
-        private bool Contains(int value, Node? root)
+        private bool Contains(T value, Node? root)
         {
             if (root == null)
             {
                 return false;
             }
 
-            if (value == root.Value)
+            if (value.CompareTo(root.Value) == 0)
             {
                 return true;
             }
 
-            if (value < root.Value)
+            if (value.CompareTo(root.Value) < 0)
             {
                 return Contains(value, root.Left);
             }
@@ -86,15 +86,15 @@ namespace DataStructureLib
             }
         }
 
-        public int[] ToArray()
+        public T[] ToArray()
         {
-            var array = new int[Count];
+            var array = new T[Count];
             AddToArray(Root, array, 0);
 
             return array;
         }
 
-        private int AddToArray(Node node, int [] array, int index)
+        private int AddToArray(Node node, T [] array, int index)
         {
             if (node == null)
             {

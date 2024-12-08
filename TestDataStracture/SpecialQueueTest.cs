@@ -9,7 +9,7 @@ namespace TestDataStracture
         [Test]
         public void NewQueueIsEmptyTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<object>();
 
             Assert.That(queue.Count.Equals(0));
         }
@@ -19,18 +19,18 @@ namespace TestDataStracture
         [Test]
         public void EnqueueOneObjectTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<int>();
 
-            queue.Enqueue("1");
+            queue.Enqueue(1);
 
             Assert.That(queue.Count.Equals(1));
-            Assert.That(queue.Contains("1"));
+            Assert.That(queue.Contains(1));
         }
 
         [Test]
         public void EnqueueDifferentTypeTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<object>();
 
             queue.Enqueue("1");
             queue.Enqueue("q");
@@ -50,7 +50,7 @@ namespace TestDataStracture
         [Test]
         public void DequeueTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<object>();
 
             queue.Enqueue("1");
             queue.Enqueue(1);
@@ -66,7 +66,7 @@ namespace TestDataStracture
 
             Assert.That(queue.Count.Equals(0));
 
-            Assert.IsNull(queue.Dequeue());
+            Assert.Throws<InvalidOperationException>(() => queue.Dequeue(), "Queue is empty");
         }
 
         #endregion
@@ -77,7 +77,7 @@ namespace TestDataStracture
         [Test]
         public void PeekWhenOneObjectTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<int>();
 
             queue.Enqueue(1);
             queue.Peek();
@@ -88,7 +88,7 @@ namespace TestDataStracture
         [Test]
         public void PeekWhenSeveralObjectsTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<int>();
 
             queue.Enqueue(1);
             queue.Enqueue(2);
@@ -101,7 +101,7 @@ namespace TestDataStracture
         [Test]
         public void PeekAfterDequeueTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<object>();
 
             queue.Enqueue(1);
             queue.Enqueue("2");
@@ -115,13 +115,12 @@ namespace TestDataStracture
         [Test]
         public void PeekEmptyQueueTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<int>();
 
             queue.Enqueue(1);
             queue.Dequeue();
-            queue.Peek();
 
-            Assert.IsNull(queue.Peek());
+            Assert.Throws<InvalidOperationException>(() => queue.Peek(), "Queue is empty");
         }
 
         #endregion
@@ -131,7 +130,7 @@ namespace TestDataStracture
         [Test]
         public void MethodContainsTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<string>();
 
             queue.Enqueue("1");
             queue.Enqueue("2");
@@ -150,7 +149,7 @@ namespace TestDataStracture
         [Test]
         public void MethodToArrayTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<string>();
 
             queue.Enqueue("1");
             queue.Enqueue("2");
@@ -173,7 +172,7 @@ namespace TestDataStracture
         [Test]
         public void MethodClearTest()
         {
-            var queue = new SpecialQueue();
+            var queue = new SpecialQueue<string>();
 
             queue.Enqueue("1");
             queue.Enqueue("2");

@@ -9,7 +9,7 @@ namespace TestDataStracture
         [Test]
         public void NewListIsEmptyTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<object>();
 
             Assert.That(list.Count.Equals(0));
         }
@@ -19,7 +19,7 @@ namespace TestDataStracture
         [Test]
         public void MethodAddTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<int>();
 
             int itemAdded = 5;
 
@@ -34,7 +34,7 @@ namespace TestDataStracture
         [Test]
         public void MethodAddWithExtendedInnerArrayTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<int>();
 
             int itemAdded = 25;
 
@@ -49,7 +49,7 @@ namespace TestDataStracture
         [Test]
         public void MethodAddWithDifferentValuesTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<object>();
 
             list.Add(1);
             list.Add('a');
@@ -65,7 +65,7 @@ namespace TestDataStracture
         [Test]
         public void MethodInsertLastIndexTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<object>();
 
             list.Add(1);
             list.Add('a');
@@ -86,7 +86,7 @@ namespace TestDataStracture
         [Test]
         public void MethodInsertWithExtendedInnerArrayTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<int>();
 
             list.Add(100);
 
@@ -110,7 +110,7 @@ namespace TestDataStracture
         [Test]
         public void MethodContainsTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<object>();
 
             list.Add(1);
             list.Add('a');
@@ -133,7 +133,7 @@ namespace TestDataStracture
         [Test]
         public void MethodClearTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<object>();
 
             list.Add(1);
             list.Add('a');
@@ -156,39 +156,39 @@ namespace TestDataStracture
         [Test]
         public void MethodRemoveTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<string>();
 
-            list.Add(1);
-            list.Add('a');
+            list.Add("1");
+            list.Add("a");
             list.Add("hello");
 
             list.Remove("hello");
 
             Assert.That(list.Count.Equals(2));
 
-            Assert.That(list.Contains(1));
-            Assert.That(list.Contains('a'));
+            Assert.That(list.Contains("1"));
+            Assert.That(list.Contains("a"));
             Assert.That(!list.Contains("hello"));
         }
 
         [Test]
         public void MethodRemoveAtTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<int>();
 
             list.Add(1);
-            list.Add('a');
-            list.Add("hello");
+            list.Add(2);
+            list.Add(3);
 
-            int index = list.IndexOf("hello");
+            int index = list.IndexOf(3);
 
             list.RemoveAt(index);
 
             Assert.That(list.Count.Equals(2));
 
             Assert.That(list.Contains(1));
-            Assert.That(list.Contains('a'));
-            Assert.That(!list.Contains("hello"));
+            Assert.That(list.Contains(2));
+            Assert.That(!list.Contains(3));
         }
 
         #endregion
@@ -198,7 +198,7 @@ namespace TestDataStracture
         [Test]
         public void MethodToArrayTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<object>();
 
             list.Add(1);
             list.Add('a');
@@ -212,7 +212,7 @@ namespace TestDataStracture
         [Test]
         public void IndexerTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<object>();
 
             list.Add(1);
             list.Add('a');
@@ -235,7 +235,7 @@ namespace TestDataStracture
         [Test]
         public void MethodReverseTest()
         {
-            var list = new SpecialList();
+            var list = new SpecialList<object>();
 
             list.Add(1);
             list.Add('a');
